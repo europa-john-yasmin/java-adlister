@@ -32,7 +32,7 @@ public class HelloWorldServlet extends HttpServlet {
         HttpSession session = req.getSession(true);
         res.setContentType("text/html");
         PrintWriter out1 = res.getWriter();
-        Integer count = 0;
+        int count = 0;
         String head;
         if (session.isNew()) {
             head = "This is the New Session";
