@@ -1,8 +1,8 @@
 import com.mysql.cj.jdbc.Driver;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+        import java.sql.*;
+        import java.util.ArrayList;
+        import java.util.List;
 
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
@@ -43,6 +43,19 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
         }
+    }
+
+    @Override
+    public boolean delete(long id) {
+        try {
+            Statement stmt = connection.createStatement();
+            String query = ("DELETE FROM ads WHERE id=" + id);
+            int val = stmt.executeUpdate(query);
+            return val > 0;
+        } catch (SQLException ex) {
+            System.out.println("error deleting ad");
+        }
+        return false;
     }
 
     private String createInsertQuery(Ad ad) {
