@@ -83,6 +83,6 @@ public class MySQLAdsDao implements Ads {
     }
 
     public static void main(String[] args) {
-        delete(1);
+//        delete(1);
     }
 }
