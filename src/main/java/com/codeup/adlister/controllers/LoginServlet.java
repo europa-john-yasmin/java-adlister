@@ -31,7 +31,8 @@ public class LoginServlet extends HttpServlet {
 
         User user = DaoFactory.getUsersDao().findByUsername(username);
         boolean validAttempt = (user.getPassword().equals(password));
-// OR
+
+        //  or
 
 //        boolean validAttempt = false;
 //
