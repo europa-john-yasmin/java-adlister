@@ -18,7 +18,6 @@ VALUES ('cars'),
        ('sporting'),
        ('tools');
 
-
 INSERT INTO ads (user_id, title, description, price)
 VALUES (1, '1966 Camaro', 'Lightly Used, must see.', 6000.00),
        (2, 'Harry Potter Complete Series', 'Lightly Used, must see.', 100.00),
