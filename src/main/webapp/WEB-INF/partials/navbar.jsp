@@ -1,18 +1,18 @@
 <%@ page import="com.codeup.adlister.models.User" %>
 
 <%
-    User user=null;
+    User user = null;
 
-    if(session != null){
+    if (session != null) {
         user = (User) session.getAttribute("user");
     }
 
-    if(user != null){
+    if (user != null) {
         request.setAttribute("navbar", "<li><a href=\"/ads/search\">Search</a></li>\n" +
                 "<li><a href=\"/logout\">Logout</a></li>\n" +
                 "<li><a href=\"/ads/create\">Create</a></li>\n" +
                 "<li><a href=\"/profile\">Profile</a></li>");
-    }  else {
+    } else {
         request.setAttribute("navbar", "<li><a href=\"/ads/search\">Search</a></li>\n" +
                 "<li><a href=\"/register\">Register</a></li>\n" +
                 "<li><a href=\"/login\">Login</a></li>");
