@@ -20,7 +20,7 @@ import java.io.PrintWriter;
 
 public class CreateAdServlet extends HttpServlet {
 
-    private String myPath = "/img/";
+    private String myPath = "/Users/yasmin/IdeaProjects/project-java-adlister/img";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") == null) {

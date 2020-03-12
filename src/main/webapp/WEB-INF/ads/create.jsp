@@ -2,7 +2,7 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Create a new Ad" />
+        <jsp:param name="title" value="Create a New Ad" />
     </jsp:include>
 </head>
 <body>
@@ -26,9 +26,10 @@
                 <input id="price" name="price" class="form-control" type="text" value=${price}>
             </div>
             <div class="form-group">
-                <label for="fileupload">Upload image</label>
-                Please enter file name:<input id="fileupload" type="text" name="fileName">
-                Select File to Upload:<input type="file" name="picture">
+                <label for="fileupload">Upload image<br>
+<%--                Please enter file name:<input id="fileupload" type="text" name="fileName">--%>
+                Select File to Upload:<input type="file" name="picture" input id="fileupload">
+                </label>
             </div>
 
             <fieldset>
