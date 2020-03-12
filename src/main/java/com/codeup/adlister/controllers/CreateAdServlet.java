@@ -16,11 +16,9 @@ import java.io.PrintWriter;
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2,
         maxFileSize = 1024 * 1024 * 50,
-        maxRequestSize = 1024 *1024 * 50)
-
+        maxRequestSize = 1024 * 1024 * 50)
 public class CreateAdServlet extends HttpServlet {
-
-    private String myPath = "/Users/yasmin/IdeaProjects/project-java-adlister/img";
+    private String myPath = "/Users/yasmin/ideaprojects/project-java-adlister/img";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") == null) {
@@ -28,19 +26,17 @@ public class CreateAdServlet extends HttpServlet {
             return;
         }
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
-            .forward(request, response);
-
+                .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession();
-        User user=null;
+        User user = null;
         String title = request.getParameter("title");
         String description = request.getParameter("description");
         String price = request.getParameter("price");
         Validate validate = new Validate();
-        boolean validAttempt = validate.authenticate(title,description,price,request);
-
+        boolean validAttempt = validate.authenticate(title, description, price, request);
         // File upload variables
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
@@ -52,13 +48,11 @@ public class CreateAdServlet extends HttpServlet {
         String savePath = myPath + File.separator + filename;
 //        String location = String.format("%s/%s","resources/img",filename);
         System.out.println(savePath);
-        String location = String.format("%s/%s","/resources/img",filename);
-
-        if(session != null){
+        String location = String.format("%s/%s", "/resources/img", filename);
+        if (session != null) {
             user = (User) session.getAttribute("user");
         }
-
-        if(user != null){
+        if (user != null) {
             if (validAttempt) {
                 filePart.write(savePath + File.separator); // writing file to location
                 Ad ad = new Ad(user.getId(),
@@ -80,16 +74,15 @@ public class CreateAdServlet extends HttpServlet {
         }
     }
 
-    private String extractFilename(Part filePart){
+    private String extractFilename(Part filePart) {
         String contentDisp = filePart.getHeader("content-disposition");
         String[] items = contentDisp.split(";");
-        for (String s: items){
-            if (s.trim().startsWith("filename")){
-                return s.substring(s.indexOf("=") +2 , s.length() -1);
+        for (String s : items) {
+            if (s.trim().startsWith("filename")) {
+                return s.substring(s.indexOf("=") + 2, s.length() - 1);
             }
         }
         return "";
     }
-
 }
 
