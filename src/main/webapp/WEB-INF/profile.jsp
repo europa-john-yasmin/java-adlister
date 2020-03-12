@@ -33,6 +33,8 @@
         <%--                <img src="${ad.location}" style="width: 40%;" alt="test">--%>
         <%--                <h2>${message}</h2>--%>
         <%--                <a href="/ads/editAd?ad-id=${ad.id}">Edit this ad.</a>--%>
+            <a class="btn btn-danger text-center center-block" href="/ads/editAd?ad-id=${ad.id}" role="button">Edit this ad</a>
+
         <%--            </div>--%>
         <%--        </c:forEach>--%>
         <c:forEach var="ad" items="${ads}">
